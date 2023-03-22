@@ -5,6 +5,7 @@ public class cameraPivot : MonoBehaviour
 {
     public Vector2 moveVector;
     public float speed = 6f;
+    public float zoomSpeed = 0.1f;
     [SerializeField] Rigidbody2D rb;
     public KeyCode zoom = KeyCode.Equals;
     public KeyCode revert = KeyCode.Minus;
@@ -18,13 +19,13 @@ public class cameraPivot : MonoBehaviour
         rb.velocity = new Vector2(moveVector.x * speed, moveVector.y * speed);
         if (Input.GetKey(zoom) && cam.orthographicSize < 60)
         {
-            cam.orthographicSize = cam.orthographicSize + 0.1f;
-            virtualCamera.m_Lens.OrthographicSize = virtualCamera.m_Lens.OrthographicSize + 0.1f;
+            cam.orthographicSize = cam.orthographicSize + zoomSpeed;
+            virtualCamera.m_Lens.OrthographicSize = virtualCamera.m_Lens.OrthographicSize + zoomSpeed;
             Debug.Log("+");
         }else if (Input.GetKey(revert) && cam.orthographicSize> 1)
         {
-            cam.orthographicSize = cam.orthographicSize - 0.1f;
-            virtualCamera.m_Lens.OrthographicSize = virtualCamera.m_Lens.OrthographicSize - 0.1f;
+            cam.orthographicSize = cam.orthographicSize - zoomSpeed;
+            virtualCamera.m_Lens.OrthographicSize = virtualCamera.m_Lens.OrthographicSize - zoomSpeed;
             Debug.Log("-");
         }
     }
