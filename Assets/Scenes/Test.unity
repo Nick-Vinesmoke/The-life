@@ -338,7 +338,7 @@ MonoBehaviour:
   speed: 2
   moveTime: 0
   rb: {fileID: 1855297265}
-  life: {fileID: 0}
+  life: {fileID: 1855297268}
 --- !u!1001 &1246921793437736612
 PrefabInstance:
   m_ObjectHideFlags: 0
